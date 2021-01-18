@@ -2,8 +2,16 @@ def balanced_parenthesis(text):
     stack = []
     for c in text:
         if c == '(':
-            stack.append(1)
-        elif c == ')':
+            stack.append('(')
+        elif c == '{':
+            stack.append('{')
+        elif c == '[':
+            stack.append('[')
+        elif c == ')' and stack[-1] == '(':
+            stack.pop()
+        elif c == '}' and stack[-1] == '{':
+            stack.pop()
+        elif c == ']' and stack[-1] == '[':
             stack.pop()
     if not stack:
         return True
