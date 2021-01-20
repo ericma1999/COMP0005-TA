@@ -1,3 +1,24 @@
+def binarySearch(values):
+    top = len(values) - 1
+    mid = (len(values) - 1) // 2
+    bottom = 0
+
+    if (bottom == top):
+        # base case
+        return values[0]
+
+    while True:
+
+        if values[mid] > values[mid + 1] and values[mid] > values[mid - 1]:
+            return mid
+
+        elif values[mid] >= values[mid - 1] and values[mid] <= values[mid + 1]:
+            
+            mid = (top + mid) // 2
+        else:
+            mid = (bottom + mid) // 2
+
+
 def checkBitonic(numbers):
 
     reverse = list(reversed(numbers))
@@ -6,18 +27,12 @@ def checkBitonic(numbers):
     if (len(numbers) == 1) or not numbers:
         return False
 
-    for i in range(0, len(numbers)):
+    pos = binarySearch(numbers)
 
-        if (numbers[i] > numbers[i + 1]):
-            pos = i + 1
-            break
-        
-        if(reverse[i] > reverse[i+1]):
-            pos = len(numbers) - (i + 1)
-            break
 
-    
+    # increasing part
     first_half = numbers[0:pos]
+    # decreasing part
     second_half = numbers[pos:]
 
 
@@ -29,10 +44,10 @@ def checkBitonic(numbers):
 
 
 
-print(checkBitonic([1, 3, 4, 6, 9, 14, 11, 7, 2, -4, -9] ))
+print(checkBitonic([1, 2, 3 ,4 ,5, 4 ,3]))
 
 
-
-# sorted is Nlog(N) in python
+# N
+# sorted is log(N) in python
 # all complexity should be log(N) + Nlog(N)
 # so overall still Nlog(N) not log(N)
