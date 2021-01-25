@@ -69,12 +69,11 @@ def checkBitonic(numbers, value):
     #     return True    
 
 
-    print(first_half)
-    if binSearch(first_half, value) != -1 or binSearch(second_half, value) != -1:
-        return True
+    return binSearch(first_half, value) != -1 or binSearch(second_half, value) != -1
 
 
-print(checkBitonic([1, 2, 3 ,4 ,5, 4 ,3], 3))
+
+print(checkBitonic([1, 2, 3 ,4 ,5, 4 ,3], -1))
 
 
 
