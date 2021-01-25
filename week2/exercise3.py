@@ -1,4 +1,4 @@
-from math import ceil
+import math
 def checkBitonic(numbers):
 
     reverse = list(reversed(numbers))
@@ -32,18 +32,56 @@ def findMaxBitonic(values):
     top = len(values) - 1
     bot = 0
     while(True):
-        mid = ceil((top+bot)/2)
+        mid = round((top+bot)/2)
         val = values[mid]
         left = values[mid-1]
         right = values[mid+1]
         if(val >= left and val >= right):
-            return values[mid]
+            return mid
         elif(val >= left and val <= right):
             bot = mid
         else:
             top = mid
 
-print(checkBitonic([1, 3, 4, 6, 9, 14, 11, 7, 2, -4, -9] ))
+def binarySearchDec(values, target):
+    top = len(values) - 1
+    bot = 0
+    while(True):
+        mid = (top+bot)//2
+        val = values[mid]
+        if(val == target):
+            return True
+        if(bot == top):
+            return False
+        elif(val > target):
+            bot = mid+1
+        else:
+            top = mid-1
+
+def binarySearchAsc(values, target):
+    top = len(values) - 1
+    bot = 0
+    while(True):
+        mid = (top+bot)//2
+        val = values[mid]
+        if(val == target):
+            return True
+        if(bot == top):
+            return False
+        elif(val < target):
+            bot = mid+1
+        else:
+            top = mid-1
+
+def checkNumBitonic(values,target):
+    midIndex = findMaxBitonic(values)
+    if values[midIndex] == target:
+        return True
+    return (binarySearchAsc(values[:midIndex], target) or binarySearchDec(values[midIndex:], target))
+
+print(checkNumBitonic([1, 3, 4, 6, 9, 14, 11, 7, 2, -4, -9], 1))
+
+#print(checkBitonic([1, 3, 4, 6, 9, 14, 11, 7, 2, -4, -9] ))
 
 
 
