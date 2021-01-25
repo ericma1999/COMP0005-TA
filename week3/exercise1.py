@@ -17,7 +17,7 @@ def sortArray(vals):
     return newList
 
 
-def mergeSort(arr,arr2):
+def dualMergeSort(arr,arr2):
     if len(arr) > 1:
 
          # Finding the mid of the array
@@ -32,11 +32,11 @@ def mergeSort(arr,arr2):
         R2 = arr2[mid:]
 
         # Sorting the first half
-        mergeSort(L,L2)
+        dualMergeSort(L,L2)
 
 
         # Sorting the second half
-        mergeSort(R,R2)
+        dualMergeSort(R,R2)
 
         i = j = k = 0
 
@@ -65,7 +65,7 @@ def mergeSort(arr,arr2):
             j += 1
             k += 1
 
-def anagrams(words, words2):
+def groupAnagrams(words, words2):
     groups = [[]]
     count = 0
     value = words.pop(0)
@@ -80,10 +80,9 @@ def anagrams(words, words2):
         groups[count].append(words2.pop(0))
     return groups
 
-sortedWords = sortArray(words)
-mergeSort(sortedWords,words)
+def anagrams(words):
+    sortedWords = sortArray(words)
+    dualMergeSort(sortedWords, words)
+    return(groupAnagrams(sortedWords, words))
 
-print(sortedWords)
-print(words)
-
-print(anagrams(sortedWords, words))
+print(anagrams(words))
