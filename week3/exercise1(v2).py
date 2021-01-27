@@ -92,7 +92,7 @@ def findAnagrams(words):
             i+=1
             continue
         else:
-            deletedWords = words[:i+1]
+            deletedWords = words[:i]
             print(deletedWords)
             secondList = secondList[i+1::]
             words = words[i+1::]
