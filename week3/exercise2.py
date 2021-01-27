@@ -1,5 +1,3 @@
-
-# Cheat version
 def insertionSort(array):
     negativeNumbers = 0
     for i in range(0, len(array)):
@@ -17,6 +15,7 @@ def insertionSort(array):
 
     result = []
 
+
     while len(positives) > 0 or len(negatives) > 0:
         if len(positives) > 0:
             result.append(positives.pop(0))
@@ -27,6 +26,14 @@ def insertionSort(array):
     print(result)
 
 
+
+
+
+
+
+
+# def separtePosAndNegatives():
+#     print([-8, 1, 2, -4, 6, 12, 5, -10, 16, 7, 11])
 
 test = [-8, 1, 2, 0, -4, 6, 12, 5, -10, 16, 7, 11]
 insertionSort(test)
