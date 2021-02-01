@@ -1,4 +1,4 @@
-pancakes = [3,2,4,1]
+pancakes = [9,8,7,6,5,4,3,2,1]
 
 def flip(i,pancakes):
     sub = pancakes[0:i+1]
@@ -7,7 +7,7 @@ def flip(i,pancakes):
     print(pancakes)
 
 def pancakeSort(pancakes):
-    count = len(pancakes)-1
+    count = len(pancakes)
     maxNum = 0
     while(count > 0):
         print(count)
@@ -15,11 +15,11 @@ def pancakeSort(pancakes):
         if maxNum == pancakes[count-1]:
             count -= 1
         elif maxNum == pancakes[0]:
-            flip(count, pancakes)
+            flip(count-1, pancakes)
             count -= 1
         else:
             flip(pancakes.index(maxNum), pancakes)
-            flip(count, pancakes)
+            flip(count-1, pancakes)
             count -= 1
 
 print(pancakes)
