@@ -7,11 +7,11 @@ def flip(i,pancakes):
     print(pancakes)
 
 def pancakeSort(pancakes):
-    count = len(pancakes)
+    count = len(pancakes)-1
     maxNum = 0
     while(count > 0):
         print(count)
-        maxNum = max(pancakes[0:count+1])
+        maxNum = max(pancakes[0:count])
         if maxNum == pancakes[count-1]:
             count -= 1
         elif maxNum == pancakes[0]:
