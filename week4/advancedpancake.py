@@ -4,19 +4,16 @@ def enhancedFlip(i,j,pancakes):
     pancakes[:] = pancakes[0:i] + sub + pancakes[j+1:]
 
 def pancakeSort(pancakes):
-    count = 0
-    maxNum = 0
-    flippedIndecies = []
+    length = len(pancakes) + 1
+    pancakes.insert(length, max(pancakes) + 1)
 
-    length = len(pancakes)
     maxIndex = None
     minIndex = None
 
     currentIndex = 0
 
     value = None
-    shouldBreak = False
-
+    swaps = []
     while True:
         exist_disorder = False
         for i in range(1, length - 1):
@@ -32,11 +29,16 @@ def pancakeSort(pancakes):
             if pancakes[j] > value:
                 minIndex = j
                 break
-     
+        swaps += [[minIndex + 1, maxIndex + 1]]
         enhancedFlip(minIndex, maxIndex, pancakes)
+
+    pancakes.pop()
+
+    print(swaps)
+
 
 
 if __name__ == "__main__":
-    pancakes =  [1, 8, 9, 3, 2, 7, 6, 5, 4, 10]
+    pancakes =  [1, 8, 9, 3, 2, 7,15,22,1000,500,32]
     pancakeSort(pancakes)
     print(pancakes)
