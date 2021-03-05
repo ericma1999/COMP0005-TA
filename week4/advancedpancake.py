@@ -1,4 +1,4 @@
-def enhancedFlip(i,j,pancakes):
+def superFlip(i,j,pancakes):
     sub = pancakes[i:j+1]
     sub.reverse()
     pancakes[:] = pancakes[0:i] + sub + pancakes[j+1:]
@@ -30,7 +30,7 @@ def pancakeSort(pancakes):
                 minIndex = j
                 break
         swaps += [[minIndex + 1, maxIndex + 1]]
-        enhancedFlip(minIndex, maxIndex, pancakes)
+        superFlip(minIndex, maxIndex, pancakes)
 
     pancakes.pop()
 
@@ -39,6 +39,9 @@ def pancakeSort(pancakes):
 
 
 if __name__ == "__main__":
-    pancakes =  [1, 8, 9, 3, 2, 7,15,22,1000,500,32]
+    # pancakes =  [1, 8, 9, 3, 2, 7,15,22,1000,500,32]
+    pancakes = [1, 8, 7, 6 ,5 ,4 ,2, 3, 9] 
+    # breaks here
+    # pancakes = [1, 8, 9, 3, 2, 7, 6, 5, 4, 10]
     pancakeSort(pancakes)
     print(pancakes)
